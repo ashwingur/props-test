@@ -3,18 +3,22 @@ import Card from "./components/Card";
 import data from "./data";
 
 function App() {
-  console.log(data);
-  const cards = data.map((item) => (
-    <Card
-      imageUrl={item.imageUrl}
-      location={item.location}
-      googleMapsUrl={item.googleMapsUrl}
-      title={item.title}
-      startDate={item.startDate}
-      endDate={item.endDate}
-      description={item.description}
-    />
-  ));
+  const cards = data.map((item, index) => {
+    return (
+      <Card
+        imageUrl={item.imageUrl}
+        location={item.location}
+        googleMapsUrl={item.googleMapsUrl}
+        title={item.title}
+        startDate={item.startDate}
+        endDate={item.endDate}
+        description={item.description}
+        isLast={data.length - 1 === index ? true : false}
+      />
+    );
+  });
+  // cards[cards.length - 1].isLast = true;
+  console.log(cards);
   return (
     <div className="App">
       <Navbar />

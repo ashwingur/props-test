@@ -21,7 +21,7 @@ export default function Card(props) {
           <p>{props.description}</p>
         </div>
       </div>
-      <hr />
+      {!props.isLast && <hr />}
     </div>
   );
 }
